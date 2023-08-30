@@ -47,7 +47,7 @@ function decotrateModal(obj,img){
     let modalForm = document.getElementById("modal-form")
     modalForm.innerHTML = `
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-            <div class="flex p-8 gap-16 items-center">
+            <div class="flex flex-col-reverse md:flex-row p-8 gap-16 items-center">
                 <div class="left flex-1">
                 <h3 class="text-xl font-bold text-center">${globalVarObj.fetchData.description
                 }</h3>
