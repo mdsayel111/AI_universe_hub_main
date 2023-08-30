@@ -5,6 +5,7 @@ let globalVarObj = {
 let loadAiData = async (url)=>{
     let response = await fetch(url)
     let data = await response.json()
+    console.log(data)
     return data
 }
 
@@ -12,6 +13,11 @@ let onclickHandler = async(id, img)=>{
     await moreData(id)
     decotrateModal(globalVarObj.fetchData,img)
     my_modal_3.showModal()
+}
+
+function imgErrorHandle(e){
+    console.log(e)
+    e.src = "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
 }
 
 function displayData(dataArr){
@@ -24,7 +30,7 @@ function displayData(dataArr){
         div.innerHTML = `
         <div class="card w-96 bg-base-100 shadow-xl" onclick="onclickHandler('${id}', '${element.image ? element.image : 'https://static.thenounproject.com/png/504708-200.png'}')">
             <figure class="px-10 pt-10">
-            <img class="w-full aspect-[3/2]" src="${element.image ? element.image : 'https://static.thenounproject.com/png/504708-200.png'}" alt="Shoes" class="rounded-xl" />
+            <img class="w-full aspect-[3/2]" onerror="imgErrorHandle(this)" src="${element.image ? element.image : 'https://static.thenounproject.com/png/504708-200.png'}" alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body items-baseline">
             <h2 class="card-title">Features</h2>
